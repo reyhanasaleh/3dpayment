@@ -29,6 +29,9 @@ export async function POST(req) {
 
   const valid = retrievedHash === actualHash;
 
+  console.log(retrievedHash);
+  console.log(actualHash);
+
   let rows = Object.entries(entries)
     .map(([k, v]) => `<tr><td>${k}</td><td>${v}</td></tr>`)
     .join("");

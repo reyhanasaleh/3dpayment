@@ -30,8 +30,6 @@ export async function POST(req) {
       (k) => `<input type=\"hidden\" name=\"${k}\" value=\"${entries[k]}\" />`
     )
     .join("\n");
-
-console.log(hash);
     
   const html = `
 <html>
