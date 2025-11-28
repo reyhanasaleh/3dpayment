@@ -106,6 +106,7 @@ export default function HomePage() {
                     onChange={(e) => setAmount(e.target.value)}
                   />
                 </div>
+                
                 {/* Hidden Fields */}
                 <input
                   type="hidden"
