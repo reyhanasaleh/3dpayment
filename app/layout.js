@@ -16,8 +16,20 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "2D Payment",
-  description: "2D Payment System",
+  title: "Zorlu Dijital 3D Ödeme",
+  description: "Zorlu Dijital 3D Ödeme Sistemi",
+  openGraph: {
+    title: "Zorlu Dijital 3D Ödeme",
+    description: "Zorlu Dijital 3D Ödeme Sistemi",
+    type: "website",
+    images: "/logo.png",
+    url: process.env.NEXT_PUBLIC_DOMAIN,
+  },
+  icons: {
+    icon: ["/logo.png"],
+    apple: ["/logo.png"],
+    shortcut: ["/logo.png"],
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -26,7 +38,7 @@ export default function RootLayout({ children }) {
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         {children}
         <BootstrapClient />
-        <ToastContainer position="bottom-center" autoClose={3000} />
+        <ToastContainer position="bottom-center" autoClose={3000} />
       </body>
     </html>
   );
