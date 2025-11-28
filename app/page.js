@@ -70,7 +70,7 @@ export default function HomePage() {
         <input type="hidden" name="currency" value={orgCurrency} />
         <input type="hidden" name="rnd" value={orgRnd} />
         <input type="hidden" name="storetype" value="3D_PAY_HOSTING" />
-        <input type="hidden" name="hashAlgorithm" value="Ver2" />
+        <input type="hidden" name="hashAlgorithm" value="Ver3" />
         <input type="hidden" name="lang" value="tr" />
         <input type="hidden" name="BillToName" value="name" />
         <input type="hidden" name="BillToCompany" value="billToCompany" />
