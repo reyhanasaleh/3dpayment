@@ -2,7 +2,7 @@
 
 export default function HomePage() {
   const orgClientId = "120000335";
-  const orgAmount = "1.00";
+  const orgAmount = "100.00";
   const orgOkUrl = `${process.env.NEXT_PUBLIC_DOMAIN}api/response`;
   const orgFailUrl = `${process.env.NEXT_PUBLIC_DOMAIN}api/response`;
   const orgTransactionType = "Auth";
