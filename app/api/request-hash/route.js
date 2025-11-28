@@ -4,39 +4,38 @@ export async function POST(req) {
   const formData = await req.formData();
   const entries = Object.fromEntries(formData.entries());
 
-  const keys = Object.keys(entries).sort((a, b) =>
-    a.localeCompare(b, undefined, { sensitivity: "base" })
-  );
+  const storeKey = "VRIHJKNhjm43yvjHG";
 
-  let hashVal = "";
+  // Exclude hash & encoding
+  const hashKeys = Object.keys(entries)
+    .filter(k => !["hash", "encoding"].includes(k.toLowerCase()));
 
-  keys.forEach((key) => {
-    const lower = key.toLowerCase();
-    if (lower !== "hash" && lower !== "encoding") {
-      const escaped = entries[key].replace(/\\/g, "\\\\").replace(/\|/g, "\\|");
-      hashVal += escaped + "|";
-    }
+  // Sort alphabetically
+  hashKeys.sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
+
+  // Build hash string
+  const hashParts = hashKeys.map(k => {
+    const v = entries[k] ?? "";
+    return v.replace(/\\/g, "\\\\").replace(/\|/g, "\\|");
   });
 
-  const storeKey = "ASDf23891678_ASDf23891678";
-  const escapedStoreKey = storeKey.replace(/\\/g, "\\\\").replace(/\|/g, "\\|");
-  hashVal += escapedStoreKey;
+  const hashString = hashParts.join("|") + "|" + storeKey;
 
-  const sha512 = crypto.createHash("sha512").update(hashVal).digest("hex");
-  const hash = Buffer.from(sha512, "hex").toString("base64");
+  // SHA512 → Base64
+  const sha512 = crypto.createHash("sha512").update(hashString, "ascii").digest();
+  const hash = Buffer.from(sha512).toString("base64");
 
-  const fields = keys
-    .map(
-      (k) => `<input type=\"hidden\" name=\"${k}\" value=\"${entries[k]}\" />`
-    )
+  // Add hash to form fields
+  const fields = Object.keys(entries)
+    .map(k => `<input type="hidden" name="${k}" value="${entries[k]}" />`)
     .join("\n");
 
   const html = `
 <html>
-<body onload=\"document.forms[0].submit()\">
-<form method=\"post\" action=\"https://sanalpos.card-plus.net/fim/est3dgate\">
+<body onload="document.forms[0].submit()">
+<form method="post" action="https://sanalpos.card-plus.net/fim/est3dgate">
 ${fields}
-<input type=\"hidden\" name=\"HASH\" value=\"${hash}\" />
+<input type="hidden" name="hash" value="${hash}" />
 </form>
 </body>
 </html>

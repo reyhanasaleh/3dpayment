@@ -18,7 +18,7 @@ export async function POST(req) {
     }
   });
 
-  const storeKey = "ASDf23891678_ASDf23891678";
+  const storeKey = "VRIHJKNhjm43yvjHG";
   const escapedStoreKey = storeKey.replace(/\\/g, "\\\\").replace(/\|/g, "\\|");
   hashVal += escapedStoreKey;
 

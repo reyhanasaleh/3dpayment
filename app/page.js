@@ -6,10 +6,10 @@ export default function HomePage() {
   const orgOkUrl = `${process.env.NEXT_PUBLIC_DOMAIN}api/response`;
   const orgFailUrl = `${process.env.NEXT_PUBLIC_DOMAIN}api/response`;
   const orgTransactionType = "Auth";
-  const orgInstallment = "";
+  const orgInstallment = "1";
   const orgRnd = Date.now().toString();
   const orgCallbackUrl = `${process.env.NEXT_PUBLIC_DOMAIN}api/callback`;
-  const orgCurrency = "840";
+  const orgCurrency = "949";
 
   return (
     <center>
@@ -70,7 +70,7 @@ export default function HomePage() {
         <input type="hidden" name="currency" value={orgCurrency} />
         <input type="hidden" name="rnd" value={orgRnd} />
         <input type="hidden" name="storetype" value="3D_PAY_HOSTING" />
-        <input type="hidden" name="hashAlgorithm" value="ver3" />
+        <input type="hidden" name="hashAlgorithm" value="Ver3" />
         <input type="hidden" name="lang" value="tr" />
         <input type="hidden" name="BillToName" value="name" />
         <input type="hidden" name="BillToCompany" value="billToCompany" />
