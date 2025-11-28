@@ -3,17 +3,20 @@
 export default function HomePage() {
   const orgClientId = "120000335";
   const orgAmount = "1.00";
-  const orgOkUrl = "${process.env.NEXT_PUBLIC_DOMAIN}api/response";
-  const orgFailUrl = "${process.env.NEXT_PUBLIC_DOMAIN}api/response";
+  const orgOkUrl = `${process.env.NEXT_PUBLIC_DOMAIN}api/response`;
+  const orgFailUrl = `${process.env.NEXT_PUBLIC_DOMAIN}api/response`;
   const orgTransactionType = "Auth";
   const orgInstallment = "";
   const orgRnd = Date.now().toString();
-  const orgCallbackUrl = "${process.env.NEXT_PUBLIC_DOMAIN}api/callback";
+  const orgCallbackUrl = `${process.env.NEXT_PUBLIC_DOMAIN}api/callback`;
   const orgCurrency = "949";
 
   return (
     <center>
-      <form method="post" action="${process.env.NEXT_PUBLIC_DOMAIN}api/request-hash">
+      <form
+        method="post"
+        action={`${process.env.NEXT_PUBLIC_DOMAIN}api/request-hash`}
+      >
         <table>
           <tbody>
             <tr>
