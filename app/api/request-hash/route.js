@@ -4,8 +4,6 @@ export async function POST(req) {
   const formData = await req.formData();
   const entries = Object.fromEntries(formData.entries());
 
-  const storeKey = "VRIHJKNhjm43yvjHG";
-
   // Exclude hash & encoding
   const hashKeys = Object.keys(entries)
     .filter(k => !["hash", "encoding"].includes(k.toLowerCase()));
@@ -19,7 +17,7 @@ export async function POST(req) {
     return v.replace(/\\/g, "\\\\").replace(/\|/g, "\\|");
   });
 
-  const hashString = hashParts.join("|") + "|" + storeKey;
+  const hashString = hashParts.join("|") + "|" + process.env.API_STORE_KEY;
 
   // SHA512 → Base64
   const sha512 = crypto.createHash("sha512").update(hashString, "ascii").digest();
@@ -33,7 +31,7 @@ export async function POST(req) {
   const html = `
 <html>
 <body onload="document.forms[0].submit()">
-<form method="post" action="https://sanalpos.card-plus.net/fim/est3dgate">
+<form method="post" action="${process.env.API_LINK}">
 ${fields}
 <input type="hidden" name="hash" value="${hash}" />
 </form>

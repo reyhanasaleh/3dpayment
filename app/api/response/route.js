@@ -18,8 +18,7 @@ export async function POST(req) {
     }
   });
 
-  const storeKey = "VRIHJKNhjm43yvjHG";
-  const escapedStoreKey = storeKey.replace(/\\/g, "\\\\").replace(/\|/g, "\\|");
+  const escapedStoreKey = process.env.API_STORE_KEY.replace(/\\/g, "\\\\").replace(/\|/g, "\\|");
   hashVal += escapedStoreKey;
 
   const sha512 = crypto.createHash("sha512").update(hashVal).digest("hex");
