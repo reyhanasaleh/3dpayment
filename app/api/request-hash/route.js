@@ -36,7 +36,7 @@ console.log(hash);
   const html = `
 <html>
 <body onload=\"document.forms[0].submit()\">
-<form method=\"post\" action=\"https://host/fim/est3dgate\">
+<form method=\"post\" action=\"https://sanalpos.card-plus.net/fim/est3dgate\">
 ${fields}
 <input type=\"hidden\" name=\"HASH\" value=\"${hash}\" />
 </form>
