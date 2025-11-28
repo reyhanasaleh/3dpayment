@@ -9,7 +9,7 @@ export default function HomePage() {
   const orgInstallment = "";
   const orgRnd = Date.now().toString();
   const orgCallbackUrl = `${process.env.NEXT_PUBLIC_DOMAIN}api/callback`;
-  const orgCurrency = "949";
+  const orgCurrency = "840";
 
   return (
     <center>
@@ -69,7 +69,7 @@ export default function HomePage() {
         <input type="hidden" name="callbackUrl" value={orgCallbackUrl} />
         <input type="hidden" name="currency" value={orgCurrency} />
         <input type="hidden" name="rnd" value={orgRnd} />
-        <input type="hidden" name="storetype" value="3d" />
+        <input type="hidden" name="storetype" value="3D_PAY_HOSTING" />
         <input type="hidden" name="hashAlgorithm" value="ver3" />
         <input type="hidden" name="lang" value="tr" />
         <input type="hidden" name="BillToName" value="name" />

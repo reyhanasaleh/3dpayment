@@ -30,7 +30,7 @@ export async function POST(req) {
       (k) => `<input type=\"hidden\" name=\"${k}\" value=\"${entries[k]}\" />`
     )
     .join("\n");
-    
+
   const html = `
 <html>
 <body onload=\"document.forms[0].submit()\">

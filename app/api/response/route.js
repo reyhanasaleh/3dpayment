@@ -25,12 +25,13 @@ export async function POST(req) {
   const sha512 = crypto.createHash("sha512").update(hashVal).digest("hex");
   const actualHash = Buffer.from(sha512, "hex").toString("base64");
 
-  const retrievedHash = entries["HASH"];
+  const retrievedHash =
+    entries["HASH"] ||
+    entries["hash"] ||
+    entries["Hash"] ||
+    entries["HASHPARAMSVAL"];
 
   const valid = retrievedHash === actualHash;
-
-  console.log(retrievedHash);
-  console.log(actualHash);
 
   let rows = Object.entries(entries)
     .map(([k, v]) => `<tr><td>${k}</td><td>${v}</td></tr>`)
