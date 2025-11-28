@@ -8,7 +8,7 @@ export default function HomePage() {
   const [amount, setAmount] = useState("0");
 
   return (
-    <div className="container my-5">
+    <div className="container py-5">
       <div className="row justify-content-center">
         <div className="col-md-6 text-center">
           <Image src={logo} alt="logo" width={200} className="mb-3" />
