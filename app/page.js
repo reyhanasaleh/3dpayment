@@ -6,7 +6,7 @@ export default function HomePage() {
   const orgOkUrl = `${process.env.NEXT_PUBLIC_DOMAIN}api/response`;
   const orgFailUrl = `${process.env.NEXT_PUBLIC_DOMAIN}api/response`;
   const orgTransactionType = "Auth";
-  const orgInstallment = "1";
+  const orgInstallment = "";
   const orgRnd = Date.now().toString();
   const orgCallbackUrl = `${process.env.NEXT_PUBLIC_DOMAIN}api/callback`;
   const orgCurrency = "949";
