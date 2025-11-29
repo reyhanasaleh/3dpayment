@@ -28,6 +28,8 @@ export async function POST(req) {
     .map(k => `<input type="hidden" name="${k}" value="${entries[k]}" />`)
     .join("\n");
 
+    console.log(entries);
+    
   const html = `
 <html>
 <body onload="document.forms[0].submit()">

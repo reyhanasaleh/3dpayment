@@ -31,7 +31,6 @@ export default function HomePage() {
                     name="pan"
                     id="pan"
                     placeholder="1234567890123456"
-                    maxLength={20}
                   />
                 </div>
                 <div className="mb-3">
@@ -45,7 +44,6 @@ export default function HomePage() {
                     name="cv2"
                     id="cv2"
                     placeholder="123"
-                    maxLength={4}
                   />
                 </div>
                 <div className="row mb-3">
@@ -60,7 +58,6 @@ export default function HomePage() {
                       name="Ecom_Payment_Card_ExpDate_Month"
                       id="expMonth"
                       placeholder="MM"
-                      maxLength={2}
                     />
                   </div>
                   <div className="col">
@@ -74,7 +71,6 @@ export default function HomePage() {
                       name="Ecom_Payment_Card_ExpDate_Year"
                       id="expYear"
                       placeholder="YYYY"
-                      maxLength={4}
                     />
                   </div>
                 </div>
@@ -106,14 +102,18 @@ export default function HomePage() {
                     onChange={(e) => setAmount(e.target.value)}
                   />
                 </div>
-                
+
                 {/* Hidden Fields */}
                 <input
                   type="hidden"
                   name="clientid"
                   value={process.env.NEXT_PUBLIC_CLIENT_ID}
                 />
-                <input type="hidden" name="amount" value={amount} />
+                <input
+                  type="hidden"
+                  name="amount"
+                  value={parseFloat(amount).toFixed(2)}
+                />
                 <input
                   type="hidden"
                   name="okurl"
